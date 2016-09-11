@@ -2,7 +2,7 @@
 
 An early prototype of my conversation engine.
 
-Based on angular2-seed, a simple starter project demonstrating the basic concepts of Angular 2.
+Based on [angular2-seed](https://github.com/angular/angular2-seed), a simple starter project demonstrating the basic concepts of Angular 2.
 
 
 ### Usage
