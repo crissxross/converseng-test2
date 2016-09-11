@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-  selector: 'home',
+  // selector: 'home', // unnecessary because via router
   styleUrls: ['./home.component.css'],
   templateUrl: './home.component.html'
 })

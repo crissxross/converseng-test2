@@ -1,14 +1,20 @@
-import {NgModule} from '@angular/core'
-import {RouterModule} from '@angular/router';
-import {rootRouterConfig} from './app.routes';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
+import { routing, appRoutingProviders } from './app.routing';
+import { Store, StoreModule } from '@ngrx/store';
+
+// import {RouterModule} from '@angular/router';
+// import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
-import {Github} from './github/shared/github';
-import {FormsModule} from '@angular/forms';
-import {BrowserModule} from '@angular/platform-browser';
-import {HttpModule} from '@angular/http';
-import {AboutComponent} from './about/about.component';
-import {HomeComponent} from './home/home.component';
-import {RepoBrowser} from './github/repo-browser/repo-browser';
+import { HomeModule } from './home/home.module';
+import { SceneModule } from './scene/scene.module';
+import { AboutModule } from './about/about.module';
+
+import { Github } from './github/shared/github';
+import { RepoBrowser } from './github/repo-browser/repo-browser';
 import {RepoList} from './github/repo-list/repo-list';
 import {RepoDetail} from './github/repo-detail/repo-detail';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
@@ -21,21 +27,26 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
  */
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AboutComponent,
-    RepoBrowser,
-    RepoList,
-    RepoDetail,
-    HomeComponent
-  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(rootRouterConfig)
+    routing,
+    // RouterModule.forRoot(rootRouterConfig)
+    CoreModule,
+    HomeModule,
+    SceneModule,
+    AboutModule,
+    // add StoreModule.provideStore( ... )
+  ],
+  declarations: [
+    AppComponent,
+    RepoBrowser,
+    RepoList,
+    RepoDetail,
   ],
   providers: [
+    appRoutingProviders,
     Github, { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]

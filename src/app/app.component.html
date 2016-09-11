@@ -1,28 +1,32 @@
 <div class="wrapper">
   <header>
-<!--<h3>Conversengine-1</h3>-->
-<nav>
-  <ul>
-	<li><a [routerLink]="['/']" routerLinkActive="active">
-    Home
-  </a></li>
-	<li><a [routerLink]="['/about']" routerLinkActive="active">
-    About
-  </a></li>
-	<li><a [routerLink]="['/github', 'angular']" routerLinkActive="active">
-    Github Repos
-  </a></li>
-  </ul>
-</nav>
+    <!-- NOTE !!!! routerLinkActive might be misbehaving?! -->
+    <nav>
+      <ul>
+        <li>
+          <a [routerLink]="['/']" routerLinkActive="active">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/scene']" routerLinkActive="active">Scene</a>
+        </li>
+        <li>
+          <a [routerLink]="['/about']" routerLinkActive="active">About</a>
+        </li>
+        <li>
+          <a [routerLink]="['/github', 'angular']" routerLinkActive="active"><small>Github repos</small></a>
+        </li>
+      </ul>
+    </nav>
   </header>
 
-<main>
-	<router-outlet></router-outlet>
-</main>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 
 
-<footer>
-  conversengine-1
-  <br><em>work in progress</em> © 2016
-</footer>
+  <footer>
+    conversengine-1
+    <br><em>work in progress</em>
+    <br><small>© 2016</small>
+  </footer>
 </div>

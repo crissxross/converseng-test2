@@ -1,0 +1,30 @@
+
+To Do:
+  ☐ CHECK THESE TO DOs ARE STILL RELEVANT BECAUSE I've just copied them over from converseng-test1 and some might be obsolete in this context.
+  ☐ Remove obsolete router config stuff that came with angular2-seed - because now I'm doing more sophisticated routing using modules.
+  ✔ Implement observable convo stream in ConvoService. @done
+  ✔ create a model for conversation - see book model in ngrx/example-app for inspiration. @done
+  ☐ Add a fromEvent observable for player-options button clicks.
+  ☐ Add a more sophisticate observable mechanism for the timing and sequencing of the turns in the conversation.
+
+ngrx & conversengine To Do:
+  ☐ Stub out the ACTIONS that will apply to my convo REDUCER to give a blueprint of the updates I need to implement
+
+Redesign or Refactoring ideas:
+  ☐ PLAYER OPTIONS - instead of being in an array, should the playerOptions be an object with key value pairs - the keys being: op, vk, un ? OR should Player-Options be an array (*ngFor) of objects with nested values?
+  ☐ OP / VK / UN - should these be Typescript Enums? (see Angular University Section 9 on Forms lesson 35)
+  ☐ Should player op/vk/un options use Angular Forms module? - i.e. Reactive Model Driven Forms
+
+Angular / RxJS notes:
+  ☐ Upgrade to RC6 - once angular-CLI typescript issue is fixed
+
+ngrx & other libraries:
+  ☐ Wait until RC6 before installing ngrx/store because they want to fix some issues once RC6 bumps to latest(?) version of RxJS.
+  ☐ Angular-CLI - NOTE that in the newest webpack version (8?), the *public* folder has become *assets* folder - see change log and https://github.com/angular/angular-cli/pull/1633
+
+Updates to do:
+  ☐ Angular to RC6
+  ☐ angular-cli - to webpack latest once the typescript version issue is fixed (see in Evernote)
+
+Learn more about:
+  ☐ Typescript Enums
