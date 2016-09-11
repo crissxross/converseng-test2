@@ -1,7 +1,7 @@
 {
-  "name": "angular2-seed",
+  "name": "conversengine-1",
   "version": "1.0.0",
-  "description": "A simple starter Angular2 project",
+  "description": "Based on angular2-seed, a simple starter Angular2 project",
   "scripts": {
     "typings-install": "typings install",
     "postinstall": "npm run typings-install",

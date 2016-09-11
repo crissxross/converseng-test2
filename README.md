@@ -1,6 +1,8 @@
-## angular2-seed
+## conversengine-1
 
-A simple starter project demonstrating the basic concepts of Angular 2.
+An early prototype of my conversation engine.
+
+Based on angular2-seed, a simple starter project demonstrating the basic concepts of Angular 2.
 
 
 ### Usage
