@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+  /*margin-top: 0;*/
+}
+.actor-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  color: #121111;
+  background-color: #989295;
+  padding: 1em;
+  min-height: 350px;
+  border-radius: 10px;
+}
+.actor-speaks {
+  align-self: flex-end;
+}

@@ -1,0 +1,51 @@
+/*styles applied on :host are applied on the current component, "app" in this case*/
+/*:host {
+    display: block;
+}*/
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+header {
+    font-size: 1em;
+    line-height: 2em;
+    width: 250px;
+    flex-shrink: 2;
+}
+main {
+    height: 700px;
+    width: 525px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #343531;
+}
+footer {
+  align-self: flex-end;
+  color: #666;
+    text-align: right;
+    padding-right: 1em;
+    font-size: 0.8em;
+    width: 250px;
+    flex-shrink: 2;
+}
+/* Navigation link styles*/
+nav a {
+  padding: 0 10px;
+  text-decoration: none;
+  margin: 10px 0 0 10px;
+  display: inline-block;
+  background-color: #343531;
+  border-radius: 4px;
+}
+nav a:visited, a:link {
+  color: #5EA0B6;
+}
+nav a:hover {
+  color: #73CBE6;
+  background-color: #666963;
+}
+nav a.active {
+  color: #73CBE6;
+  background-color: #4d504a;
+}

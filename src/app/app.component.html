@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <header>
+<!--<h3>Conversengine-1</h3>-->
+<nav>
+  <ul>
+	<li><a [routerLink]="['/']" routerLinkActive="active">
+    Home
+  </a></li>
+	<li><a [routerLink]="['/about']" routerLinkActive="active">
+    About
+  </a></li>
+	<li><a [routerLink]="['/github', 'angular']" routerLinkActive="active">
+    Github Repos
+  </a></li>
+  </ul>
+</nav>
+  </header>
+
+<main>
+	<router-outlet></router-outlet>
+</main>
+
+
+<footer>
+  conversengine-1
+  <br><em>work in progress</em> © 2016
+</footer>
+</div>
