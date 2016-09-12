@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Github} from '../shared/github';
+import {GithubService} from '../shared/github.service';
 
 @Component({
   selector: 'repo-detail',
@@ -12,7 +12,7 @@ export class RepoDetail implements OnInit {
   private repo:string;
   public repoDetails:any = {};
 
-  constructor(public github:Github, private route:ActivatedRoute) {
+  constructor(public github:GithubService, private route:ActivatedRoute) {
   }
 
   ngOnInit() {

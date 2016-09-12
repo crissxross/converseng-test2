@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Github} from '../shared/github';
+import {GithubService} from '../shared/github.service';
 import {Observable} from 'rxjs/Observable';
 import {ActivatedRoute} from '@angular/router';
 
@@ -12,7 +12,7 @@ export class RepoList implements OnInit {
   org: string;
   repos: Observable<any>;
 
-  constructor(public github: Github, private route: ActivatedRoute) {
+  constructor(public github: GithubService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {

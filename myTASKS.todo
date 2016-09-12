@@ -1,6 +1,6 @@
 
 To Do:
-  ☐ CHECK THESE TO DOs ARE STILL RELEVANT BECAUSE I've just copied them over from converseng-test1 and some might be obsolete in this context.
+  ✔ CHECK THESE TO DOs ARE STILL RELEVANT BECAUSE I've just copied them over from converseng-test1 and some might be obsolete in this context. @done
   ☐ Remove obsolete router config stuff that came with angular2-seed - because now I'm doing more sophisticated routing using modules.
   ✔ Implement observable convo stream in ConvoService. @done
   ✔ create a model for conversation - see book model in ngrx/example-app for inspiration. @done
@@ -16,15 +16,14 @@ Redesign or Refactoring ideas:
   ☐ Should player op/vk/un options use Angular Forms module? - i.e. Reactive Model Driven Forms
 
 Angular / RxJS notes:
-  ☐ Upgrade to RC6 - once angular-CLI typescript issue is fixed
+  ✔ Upgrade to RC6 @done
 
 ngrx & other libraries:
-  ☐ Wait until RC6 before installing ngrx/store because they want to fix some issues once RC6 bumps to latest(?) version of RxJS.
-  ☐ Angular-CLI - NOTE that in the newest webpack version (8?), the *public* folder has become *assets* folder - see change log and https://github.com/angular/angular-cli/pull/1633
+  ✔ Wait until RC6 before installing ngrx/store because they want to fix some issues once RC6 bumps to latest(?) version of RxJS. @done
 
 Updates to do:
-  ☐ Angular to RC6
-  ☐ angular-cli - to webpack latest once the typescript version issue is fixed (see in Evernote)
+  ✔ Angular to RC6 @done
+  ✘ angular-cli - to webpack latest once the typescript version issue is fixed (see in Evernote) @cancelled
 
 Learn more about:
   ☐ Typescript Enums

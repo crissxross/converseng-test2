@@ -2,22 +2,17 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
-import { CoreModule } from './core/core.module';
-import { routing, appRoutingProviders } from './app.routing';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import { Store, StoreModule } from '@ngrx/store';
 
-// import {RouterModule} from '@angular/router';
-// import {rootRouterConfig} from './app.routes';
 import {AppComponent} from './app.component';
+import { routing, appRoutingProviders } from './app.routing';
+import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { SceneModule } from './scene/scene.module';
 import { AboutModule } from './about/about.module';
-
-import { Github } from './github/shared/github';
-import { RepoBrowser } from './github/repo-browser/repo-browser';
-import {RepoList} from './github/repo-list/repo-list';
-import {RepoDetail} from './github/repo-detail/repo-detail';
-import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+import { GithubModule } from './github/github.module';
+import { GithubService } from './github/shared/github.service';
 
 /**
  * NGRX
@@ -32,22 +27,19 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
     FormsModule,
     HttpModule,
     routing,
-    // RouterModule.forRoot(rootRouterConfig)
     CoreModule,
     HomeModule,
     SceneModule,
     AboutModule,
+    GithubModule
     // add StoreModule.provideStore( ... )
   ],
   declarations: [
-    AppComponent,
-    RepoBrowser,
-    RepoList,
-    RepoDetail,
+    AppComponent
   ],
   providers: [
     appRoutingProviders,
-    Github, { provide: LocationStrategy, useClass: HashLocationStrategy }
+    GithubService, { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
