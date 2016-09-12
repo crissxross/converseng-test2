@@ -7,13 +7,19 @@
  * The main (and only) @ngrx/store reducer for the application.
  */
 import { ActionReducer, Action } from '@ngrx/store';
+/**
+ * NGRX
+ * Create a reducer function for each data type you have
+ * in your application. The combination of these reducers
+ * will make up your application state.
+ */
 
 // Action definitions
 export const EXAMPLE_ACTION = 'EXAMPLE_ACTION';
 
 // The reducer function. Receives actions and produces new application states.
 export const convoReducer: ActionReducer<any> =
-  (state = makeInintialState(), action: Action) => {
+  (state = makeInitialState(), action: Action) => {
     switch (action.type) {
       case EXAMPLE_ACTION:
         return [...state, action.payload];
@@ -31,6 +37,6 @@ export const convoReducer: ActionReducer<any> =
 
 
 // Initial AppState, used to bootstrap the reducer
-function makeInintialState() {
+function makeInitialState() {
   // for how, see @teropa harmonics-explorer
 }
