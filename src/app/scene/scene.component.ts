@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ConvoService } from '../core/convo.service';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
+import { ConvoService } from '../core/convo.service';
+import { Convoturn } from '../core/convoturn.model';
+import { AppState } from '../core/appstate';
 
 @Component({
-  // selector: 'app-scene', // unnecessary because via router
+  // selector: 'app-scene', // unnecessary because via route
+  styleUrls: ['scene.component.css'],
   template: `
-    <app-npc [aTurn]="npcTurns"></app-npc>
+    <app-npc [npcTurn]="npcTurns"></app-npc>
     <app-player [pTurn]="playerTurns"
                 [pThought]="playerThought"
                 [pOptions]="playerOptions"
@@ -14,16 +18,16 @@ import { Observable } from 'rxjs/Observable';
                 [unOption]="unOption">
                 </app-player>
     <footer>
-      <p>sceneMeta: {{sceneMeta}}</p>
+      <p>sceneMeta: {{sceneMeta}} & ANY ACTORS? {{actors}}</p>
       <hr color="grey">
-      {{ convoTurns$ | async | json }}
+      <p>Test that the full <b>simple-convo.json</b> is loaded:</p>
+      <pre>{{ convoTurns$ | async | json }}</pre>
     </footer>
-  `,
-  styleUrls: ['scene.component.css']
+  `
 })
 export class SceneComponent implements OnInit {
   errorMessage: string;
-  convoTurns$: Observable<any>;
+  convoTurns$: Observable<Convoturn[]>;
   npcTurns;
   playerTurns;
   playerThought;
@@ -32,20 +36,29 @@ export class SceneComponent implements OnInit {
   vkOption;
   unOption;
   sceneMeta; // just testing for now
+  actors;
 
-  constructor(private convoService: ConvoService) { }
+  constructor(
+    private convoService: ConvoService,
+    private store: Store<AppState>) { }
 
   ngOnInit() {
     this.getSceneConvo();
-    this.getNpcTurns();
-    this.getPlayerTurns();
-    this.getPlayerThoughts();
-    this.getPlayerOptions();
-    this.getTitle(); // just testing for now
+    this.getMeta(); // just testing for now
+    this.getActors();
+    // this.getNpcTurns();
+    // this.getPlayerTurns();
+    // this.getPlayerThoughts();
+    // this.getPlayerOptions();
   }
 
-  getSceneConvo() {
+  getSceneConvo() { // get entire convo/dialogue for scene
     this.convoTurns$ = this.convoService.getSceneConvo();
+  }
+
+  getActors() {
+    this.actors = this.store.select('convoRedu')
+    // this.actors = this.store.select(state => state.convo['actor']);
   }
 
   getNpcTurns() {
@@ -64,8 +77,8 @@ export class SceneComponent implements OnInit {
     this.playerOptions = this.convoService.getPlayerOptions();
   }
 
-// just testing for now:
-  getTitle() {
+  // just testing for now:
+  getMeta() {
     this.sceneMeta = this.convoService.getTitle();
   }
 

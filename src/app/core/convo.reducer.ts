@@ -1,12 +1,9 @@
 /**
- * Stub out the ACTIONS that will apply to this REDUCER
- * to give a blueprint of the updates I need to implement
- */
-/**
- * Following @teropa e.g. in harmonics-explorer (in tuts) this reducer should be:
+ * Following @teropa's' harmonics-explorer (in tuts) this reducer should be:
  * The main (and only) @ngrx/store reducer for the application.
  */
 import { ActionReducer, Action } from '@ngrx/store';
+import { Convoturn } from './convoturn.model';
 /**
  * NGRX
  * Create a reducer function for each data type you have
@@ -14,20 +11,38 @@ import { ActionReducer, Action } from '@ngrx/store';
  * will make up your application state.
  */
 
-// Action definitions
-export const EXAMPLE_STUB_ACTION = 'EXAMPLE_STUB_ACTION';
+// ACTION definitions
+export const ACTORS_IN_SCENE = 'ACTORS_IN_SCENE';
+export const START_CONVO = 'START_CONVO';
+export const NEXT_CONVOTURN = 'NEXT_CONVOTURN';
+export const SPEAK = 'SPEAK';
+export const THINK = 'THINK';
+export const THINK_OPTIONS = 'THINK_OPTIONS';
+export const SELECT_OPTION = 'SELECT_OPTION';
 
 // The reducer function. Receives actions and produces new application states.
-export const convoReducer: ActionReducer<any> =
-  (state = makeInitialState(), action: Action) => {
+export const convoReducer: ActionReducer<Convoturn[]> =
+  (state: Convoturn[] = [], action: Action) => {
     switch (action.type) {
-      case EXAMPLE_STUB_ACTION:
+      case ACTORS_IN_SCENE:
         return [...state, action.payload];
 
-      case STUB_ACTION:
+      case START_CONVO:
         return state;
 
-      case STUB:
+      case NEXT_CONVOTURN:
+        return state;
+
+      case SPEAK:
+        return state;
+
+      case THINK:
+        return state;
+
+      case THINK_OPTIONS:
+        return state;
+
+      case SELECT_OPTION:
         return state;
 
       default:
@@ -36,12 +51,16 @@ export const convoReducer: ActionReducer<any> =
   }
 
 
-// Initial AppState, used to bootstrap the reducer
-function makeInitialState() {
+// Initial AppState, used to bootstrap the reducer - NOT USING YET
+function initState(): Convoturn[] {
   // for how, see @teropa harmonics-explorer
+  return [];
 }
 
 /**
- * Possible ACTIONS and/or REDUCER functions:
- *
+ * Action (defined in ngrx/store dispatcher.ts):
+ *  export interface Action {
+ *    type: string;
+ *    payload?: any;
+ *  }
  */

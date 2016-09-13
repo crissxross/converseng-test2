@@ -8,9 +8,8 @@ import { Convoturn } from './convoturn.model';
 
 @Injectable()
 export class ConvoService {
-  title = 'conversengine';
-  convo$: Observable<any>;
-  // convo$: Observable<Convoturn[]>;
+  title = 'conversengine-1';
+  convo$: Observable<Convoturn[]>;
   interval$ = Observable.interval(2000);
   timer$ = Observable.timer(100, 2000);
 
@@ -47,8 +46,8 @@ export class ConvoService {
       .map(turn => turn['says'][0][1])
       // .map(turn => turn['says'][0]['op'])
       // .do(x => console.log('getActorTurns:', x))
-      .zip(this.timer$, (says, delay, period) => says);
-      // .zip(this.interval$, (says, period) => says);
+      // .zip(this.timer$, (says, delay, period) => says);
+      .zip(this.interval$, (says, period) => says);
   }
 
   getPlayerTurns() {

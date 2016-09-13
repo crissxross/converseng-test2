@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-player',
+  styleUrls: ['player.component.css'],
   template: `
     <div class="player-wrapper">
       <p class="player-speaks">
@@ -19,8 +20,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
         </div>
       </div>
     </div>
-  `,
-  styleUrls: ['player.component.css']
+  `
 })
 export class PlayerComponent implements OnInit {
   @Input() pTurn;
