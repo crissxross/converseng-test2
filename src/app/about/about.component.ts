@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+// Store is injected into our components to gain access to our application State and to dispatch actions
 import { Store } from '@ngrx/store';
 import { INCREMENT, DECREMENT, RESET } from './counter.reducer';
 /**
@@ -15,7 +16,6 @@ interface AboutState {
 }
 
 @Component({
-  // selector: 'about', // unnecessary because via router
   template: `
     <h3>About Component</h3>
     <small>This component is currently only being used for testing ngrx/store and the counterReducer demo.</small>
@@ -30,17 +30,18 @@ export class AboutComponent {
   counter: Observable<number>;
 
   constructor(public store: Store<AboutState>) {
-    this.counter = store.select('counterReducer');
+    this.counter = store.select('counterReduc');
   }
 
+  // dispatch INCREMENT Action
   increment() {
     this.store.dispatch({ type: INCREMENT });
   }
-
+  // dispatch DECREMENT Action
   decrement() {
     this.store.dispatch({ type: DECREMENT });
   }
-
+  // dispatch RESET Action
   reset() {
     this.store.dispatch({ type: RESET });
   }

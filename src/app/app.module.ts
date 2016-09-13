@@ -38,8 +38,8 @@ import { counterReducer } from './about/counter.reducer';
     GithubModule,
     StoreModule.provideStore(
       {
-        convoRedu: convoReducer,
-        counterReducer: counterReducer
+        convoReduc: convoReducer,
+        counterReduc: counterReducer
       }
     )
   ],

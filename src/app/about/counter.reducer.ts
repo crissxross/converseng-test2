@@ -16,12 +16,17 @@ import { ActionReducer, Action } from '@ngrx/store';
  *  }
  */
 
+// ACTION definitions
 export const INCREMENT = 'INCREMENT';
 export const DECREMENT = 'DECREMENT';
 export const RESET = 'RESET';
 
-export const counterReducer: ActionReducer<number> = (state: number = 0, action: Action) => {
+// The reducer function receives actions and produces new application states.
+export const counterReducer: ActionReducer<number> = (
+  state: number = 0, action: Action ) => {
+
   switch (action.type) {
+
     case INCREMENT:
       return state + 1;
 
