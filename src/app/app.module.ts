@@ -10,6 +10,7 @@ import { routing, appRoutingProviders } from './app.routing';
 import { CoreModule } from './core/core.module';
 import { HomeModule } from './home/home.module';
 import { SceneModule } from './scene/scene.module';
+import { ScTestModule } from './sc-test/sc-test.module';
 import { AboutModule } from './about/about.module';
 import { GithubModule } from './github/github.module';
 import { GithubService } from './github/shared/github.service';
@@ -30,6 +31,7 @@ import { GithubService } from './github/shared/github.service';
     CoreModule,
     HomeModule,
     SceneModule,
+    ScTestModule,
     AboutModule,
     GithubModule
     // add StoreModule.provideStore( ... )

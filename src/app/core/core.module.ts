@@ -2,6 +2,7 @@ import { NgModule, Optional, SkipSelf} from '@angular/core';
 
 import { ScenedataService } from './scenedata.service';
 import { ConvoService } from './convo.service';
+import { TestconvService } from './testconv.service';
 import { CastlistService } from './castlist.service';
 
 // CoreModule is a pure services module
@@ -14,6 +15,7 @@ import { CastlistService } from './castlist.service';
   providers: [
     ScenedataService,
     ConvoService,
+    TestconvService,
     CastlistService
   ]
 })

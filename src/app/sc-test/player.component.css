@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  /*margin-top: 0;*/
+}
+.player-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  color: #2E2E2C;
+  background-color: #BFBFB8;
+  padding: 1em;
+  min-height: 350px;
+  border-radius: 10px;
+}
+.player-speaks {
+  color: #2E2E2C;
+}
+.thinks {
+  font-style: italic;
+}
+.options {
+  display: flex;
+  /*flex-flow: row nowrap;*/ /* <- default behaviour */
+  /*justify-content: space-between;*/
+  padding: 0;
+}
+ul {
+  display: flex;
+  /*flex-flow: row nowrap;*/ /* <- default behaviour */
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+li {
+  flex: 1 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px;
+}
+button {
+  flex: 1 100%;
+  color: #2E2E2C;
+  background-color: #ADADA8;
+  border: 2px solid #CCB;
+  border-radius: 6px;
+  padding: 0.4em;
+  text-align: left;
+  align-self: flex-start;
+  cursor: pointer;
+  cursor: hand;
+}
+button:focus, button:hover {
+  color: #FEFEF6;
+  background-color: #666963;
+  border-color: #666963;
+  outline: 0;
+}

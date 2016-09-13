@@ -2,22 +2,22 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import { SharedModule } from '../shared/shared.module';
 
-import { SceneComponent } from './scene.component';
-import { NpcComponent } from './npc.component';
+import { ScTestComponent } from './sc-test.component';
+import { ActorComponent } from './actor.component';
 import { PlayerComponent } from './player.component';
-import { sceneRouting } from './scene.routing';
+import { sctestRouting } from './sc-test.routing';
 
 @NgModule({
   imports: [
     CommonModule,
     // SharedModule,
-    sceneRouting
+    sctestRouting
   ],
   declarations: [
-    SceneComponent,
-    NpcComponent,
+    ScTestComponent,
+    ActorComponent,
     PlayerComponent
   ],
   providers: []
 })
-export class SceneModule { }
+export class ScTestModule { }

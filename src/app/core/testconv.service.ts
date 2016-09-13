@@ -7,7 +7,7 @@ import { ScenedataService } from './scenedata.service';
 import { Convoturn } from './convoturn.model';
 
 @Injectable()
-export class ConvoService {
+export class TestconvService {
   title = 'conversengine';
   convo$: Observable<any>;
   // convo$: Observable<Convoturn[]>;
@@ -41,7 +41,8 @@ export class ConvoService {
    * ngrx Actions could emit who is speaking and listening
   */
 
-  getNpcTurns() {
+
+  getActorTurns() {
     return this.convo$.mergeMap(convo => convo)
       .filter(turn => turn['actor'] === 'npc')
       .map(turn => turn['says'][0][1])

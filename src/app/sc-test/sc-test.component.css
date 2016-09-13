@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+.scene-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 100%;
+  /*padding: 10px;*/
+  background-color: #3D3D32;
+  color: lightblue;
+}
+footer {
+  padding: 12px 0 0 0;
+  color: dimgray;
+  font-size: 12px;
+}

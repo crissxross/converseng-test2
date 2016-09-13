@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ConvoService } from '../core/convo.service';
+import { TestconvService } from '../core/testconv.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  // selector: 'app-scene', // unnecessary because via router
   template: `
-    <app-npc [aTurn]="npcTurns"></app-npc>
+    <app-actor [aTurn]="actorTurns"></app-actor>
     <app-player [pTurn]="playerTurns"
                 [pThought]="playerThought"
                 [pOptions]="playerOptions"
@@ -14,30 +13,30 @@ import { Observable } from 'rxjs/Observable';
                 [unOption]="unOption">
                 </app-player>
     <footer>
-      <p>sceneMeta: {{sceneMeta}}</p>
+      <p>testMeta: {{testMeta}} | TEST SCENE</p>
       <hr color="grey">
       {{ convoTurns$ | async | json }}
     </footer>
   `,
-  styleUrls: ['scene.component.css']
+  styleUrls: ['sc-test.component.css']
 })
-export class SceneComponent implements OnInit {
+export class ScTestComponent implements OnInit {
   errorMessage: string;
   convoTurns$: Observable<any>;
-  npcTurns;
+  actorTurns;
   playerTurns;
   playerThought;
   playerOptions;
   opOption;
   vkOption;
   unOption;
-  sceneMeta; // just testing for now
+  testMeta; // just testing for now
 
-  constructor(private convoService: ConvoService) { }
+  constructor(private convoService: TestconvService) { }
 
   ngOnInit() {
     this.getSceneConvo();
-    this.getNpcTurns();
+    this.getActorTurns();
     this.getPlayerTurns();
     this.getPlayerThoughts();
     this.getPlayerOptions();
@@ -48,8 +47,8 @@ export class SceneComponent implements OnInit {
     this.convoTurns$ = this.convoService.getSceneConvo();
   }
 
-  getNpcTurns() {
-    this.npcTurns = this.convoService.getNpcTurns();
+  getActorTurns() {
+    this.actorTurns = this.convoService.getActorTurns();
   }
 
   getPlayerTurns() {
@@ -66,7 +65,7 @@ export class SceneComponent implements OnInit {
 
 // just testing for now:
   getTitle() {
-    this.sceneMeta = this.convoService.getTitle();
+    this.testMeta = this.convoService.getTitle();
   }
 
 }

@@ -15,13 +15,13 @@ import { ActionReducer, Action } from '@ngrx/store';
  */
 
 // Action definitions
-export const EXAMPLE_ACTION = 'EXAMPLE_ACTION';
+export const EXAMPLE_STUB_ACTION = 'EXAMPLE_STUB_ACTION';
 
 // The reducer function. Receives actions and produces new application states.
 export const convoReducer: ActionReducer<any> =
   (state = makeInitialState(), action: Action) => {
     switch (action.type) {
-      case EXAMPLE_ACTION:
+      case EXAMPLE_STUB_ACTION:
         return [...state, action.payload];
 
       case STUB_ACTION:
@@ -40,3 +40,8 @@ export const convoReducer: ActionReducer<any> =
 function makeInitialState() {
   // for how, see @teropa harmonics-explorer
 }
+
+/**
+ * Possible ACTIONS and/or REDUCER functions:
+ *
+ */
