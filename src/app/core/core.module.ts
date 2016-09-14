@@ -1,6 +1,7 @@
 import { NgModule, Optional, SkipSelf} from '@angular/core';
 
 import { ScenedataService } from './scenedata.service';
+import { SceneResolver } from './scene-resolve.service';
 import { ConvoService } from './convo.service';
 import { TestconvService } from './testconv.service';
 import { CastlistService } from './castlist.service';
@@ -14,6 +15,7 @@ import { CastlistService } from './castlist.service';
   exports: [],
   providers: [
     ScenedataService,
+    SceneResolver,
     ConvoService,
     TestconvService,
     CastlistService

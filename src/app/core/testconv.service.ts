@@ -17,9 +17,9 @@ export class TestconvService {
   constructor(private scenedata: ScenedataService) { }
 
   getSceneConvo() {
-    return this.convo$ = this.scenedata.getSceneData()
+    return this.convo$ = this.scenedata.getTestData()
       .map(data => data.convo)
-      .do(data => console.log('CALLED getSceneConvo:', data))
+      .do(data => console.log('CALLED getSceneConvo BUT getTestData:', data))
       .share();
   }
 

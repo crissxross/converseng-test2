@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 // Store is injected into our components to gain access to our application State and to dispatch actions
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { ConvoService } from '../core/convo.service';
+import { ConvoService } from '../core/convo.service'; // is this needed now?
 import { Convoturn } from '../core/convoturn.model';
 import { AppState } from '../core/appstate';
 
@@ -18,16 +19,21 @@ import { AppState } from '../core/appstate';
                 [unOption]="unOption">
                 </app-player>
     <footer>
-      <p>sceneMeta: {{sceneMeta}} & ANY ACTORS? {{actors}}</p>
+      <p>Scene id: {{ (scdata | async).scene.meta.id }} -
+Actors: {{ (scdata | async).scene.meta.actors }}
+      </p>
+      <p>[0] ACTOR: {{ (scdata | async).scene.convo[0].actor }}
+      SAYS: {{ (scdata | async).scene.convo[0].says[0][1] }}</p>
       <hr color="grey">
-      <p>Test that the full <b>simple-convo.json</b> is loaded:</p>
-      <pre>{{ convoTurns$ | async | json }}</pre>
+      <p>Test that the full scene data is loaded:</p>
+      <pre>{{ scdata | async | json }}</pre>
     </footer>
   `
 })
 export class SceneComponent implements OnInit {
   errorMessage: string;
   convoTurns$: Observable<Convoturn[]>;
+  scdata;
   npcTurns;
   playerTurns;
   playerThought;
@@ -35,26 +41,23 @@ export class SceneComponent implements OnInit {
   opOption;
   vkOption;
   unOption;
-  sceneMeta; // just testing for now
   actors;
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private store: Store<AppState>,
     private convoService: ConvoService
   ) { }
 
   ngOnInit() {
-    this.getSceneConvo();
-    this.getMeta(); // just testing for now
+    this.scdata = this.route.data;
+    // this.getSceneConvo();
     this.getActors();
     // this.getNpcTurns();
     // this.getPlayerTurns();
     // this.getPlayerThoughts();
     // this.getPlayerOptions();
-  }
-
-  getSceneConvo() { // get entire convo/dialogue for scene
-    this.convoTurns$ = this.convoService.getSceneConvo();
   }
 
   // IMPORTANT !!!!!!
@@ -64,6 +67,10 @@ export class SceneComponent implements OnInit {
   // My *convoReducer* handles the ACTUAL speech & thoughts delivered as
   // a result of dispatched ACTIONS.
 // Therefore I should RENAME some of these things !!!!!!!!!
+
+  getSceneConvo() { // get entire convo/dialogue for scene
+    this.convoTurns$ = this.convoService.getSceneConvo();
+  }
 
   getActors() {
     this.actors = this.store.select('convoReduc')
@@ -88,11 +95,6 @@ export class SceneComponent implements OnInit {
 
   getPlayerOptions() {
     this.playerOptions = this.convoService.getPlayerOptions();
-  }
-
-  // just testing for now:
-  getMeta() {
-    this.sceneMeta = this.convoService.getTitle();
   }
 
 }

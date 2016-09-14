@@ -6,7 +6,10 @@ import '../rxjs-operators';
 @Injectable()
 export class ScenedataService {
 
-  private scenedataUrl = 'assets/mock-data/simple-convo.json';
+  private scenedataUrl = 'assets/mock-data/scene-01.json';
+  // private scenedataUrl = 'assets/mock-data/convo-sc01.json';
+
+  private testdataUrl = 'assets/mock-data/simple-convo.json';
 
   constructor(private http: Http) { }
 
@@ -15,8 +18,16 @@ export class ScenedataService {
    * The result of map is also an Observable that emits a JSON object.
   */
 
-  getSceneData(): Observable<any> {
+  getSceneData(id: number | string): Observable<any> {
     return this.http.get(this.scenedataUrl)
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+
+
+  // just for TESTING old way
+  getTestData(): Observable<any> {
+    return this.http.get(this.testdataUrl)
       .map(response => response.json())
       // .map(this.extractData) // <-alternative way
       .catch(this.handleError);

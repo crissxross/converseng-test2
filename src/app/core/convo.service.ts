@@ -16,7 +16,7 @@ export class ConvoService {
   constructor(private scenedata: ScenedataService) { }
 
   getSceneConvo() {
-    return this.convo$ = this.scenedata.getSceneData()
+    return this.convo$ = this.scenedata.getSceneData('01')
       .map(data => data.convo)
       .do(data => console.log('CALLED getSceneConvo:', data))
       .share();
