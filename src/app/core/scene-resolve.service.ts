@@ -14,7 +14,7 @@ export class SceneResolver implements Resolve<any> {
 
     return this.scdata.getSceneData(id)
       .map(data => data.scene)
-      .do(data => console.log('RESOLVED scene data:', data))
-      .share();
+      .do(data => console.log('RESOLVED scene data:', data));
+      // .share();
   }
 }

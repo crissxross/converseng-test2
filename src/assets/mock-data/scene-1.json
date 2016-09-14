@@ -1,7 +1,7 @@
 {
   "scene": {
     "meta": {
-      "id": "01",
+      "id": "1",
       "description": "Test convo-dialogue.",
       "actors": ["npc", "player"],
       "location": "default location"
